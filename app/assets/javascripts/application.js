@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require bootstrap
+//= require gentelella/build/js/custom.js
+//= require fastclick/lib/fastclick.js

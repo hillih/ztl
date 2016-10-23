@@ -1,0 +1,17 @@
+.left_col.scroll-view
+  .navbar.nav_title
+    = link_to root_path, class: 'site_title' do
+      = image_tag 'logo.png', class: 'img-circle.profile_img'
+      span ZTL Magazyn
+  .clearfix
+  .profile
+    .profile_pic
+      = image_tag 'gentelella/production/images/img.jpg', class: 'img-circle profile_img'
+    .profile_info
+      span Welcome,
+      h2 John Doe
+  .main_menu_side.hidden-print.main_menu
+    .menu_section
+      ul.nav.side-menu
+        = menu_item(nil, '#', 'Users', 'users')
+        = menu_item(nil, '#', 'Role', 'cog')
