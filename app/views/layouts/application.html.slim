@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | ZTL
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body.nav-md.footer_fixed data-controller=controller_name data-action=action_name
+    .container.body
+      .main_container
+        .col-md-3.left_col.menu_fixed
+          = render 'layouts/application/sidebar'
+        .top_nav
+          = render 'layouts/application/navbar'
+        .right_col
+          = yield
+        footer
+          = render 'layouts/application/footer'

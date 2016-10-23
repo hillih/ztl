@@ -1,0 +1,48 @@
+.navbar .nav_title {
+  border: 0;
+}
+
+.nav_menu {
+  background-color: #2A3F54;
+  position: fixed;
+  height: 57px;
+}
+
+.nav-md {
+  .main_menu_side {
+    padding-top: 70px;
+  }
+  .container.body .right_col {
+    padding: 70px 20px 70px 20px !important;
+  }
+}
+
+.nav-sm .navbar.nav_title a img {
+  margin-left: 7px;
+}
+
+.site_title span {
+  padding-left: 20px;
+}
+
+.top_nav .nav > li > a:focus,
+.top_nav .nav > li > a:hover,
+.top_nav .nav .open > a,
+.top_nav .nav .open > a:focus,
+.top_nav .nav .open > a:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.nav.navbar-nav {
+  position: fixed;
+  right: 0;
+
+  > li > a {
+    color: #E7E7E7 !important;
+  }
+}
+
+footer {
+  background-color: #2A3F54;
+}

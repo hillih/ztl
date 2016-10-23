@@ -19,3 +19,6 @@
 # Ignore files config
 config/database.yml
 config/secrets.yml
+
+# Ignore files bower_components
+vendor/assets/bower_components/*

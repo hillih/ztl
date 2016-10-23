@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y \
 RUN localedef -i pl_PL -c -f UTF-8 -A /usr/share/locale/locale.alias pl_PL.UTF-8
 ENV LANG pl_PL.utf8
 
+RUN npm install -g bower && \
+    echo '{ "allow_root": true }' > /root/.bowerrc
+
 ENV APP_HOME /usr/src/app
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
