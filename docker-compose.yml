@@ -7,8 +7,14 @@ app:
     - .:/usr/src/app
   links:
     - db
+    - mailcatcher
 
 db:
   image: postgres:9.4
   volumes:
     - ztl_db:/var/lib/postgresql/data
+
+mailcatcher:
+  image: schickling/mailcatcher
+  ports:
+    - "1080:1080"

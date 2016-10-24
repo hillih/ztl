@@ -1,0 +1,5 @@
+- flash_messages = flash.to_hash.slice('alert', 'notice', 'warning')
+- unless flash_messages.empty?
+  .flash-messages.hidden
+    - flash_messages.each do |type, message|
+      .flash-data data-type=type data-message=message

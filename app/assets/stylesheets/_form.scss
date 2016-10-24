@@ -1,0 +1,16 @@
+.login_content {
+  form {
+    input[type="submit"] {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    div a {
+      margin-right: 0;
+    }
+  }
+  
+  h1:before, h1:after {
+    content: none;
+  }
+}

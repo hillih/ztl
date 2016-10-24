@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require gentelella/build/js/custom.js
 //= require fastclick/lib/fastclick.js
+//= require bootstrap-notify

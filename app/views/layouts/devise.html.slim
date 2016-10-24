@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title
+      | ZTL
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body.login data-controller=controller_name data-action=action_name
+    = render 'layouts/flash_messages'
+    .login_wrapper
+      .animate.form.login_form
+        section.login_content
+          = image_tag 'logo_lg.png'
+          = yield

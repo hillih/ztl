@@ -1,0 +1,24 @@
+---
+development:
+  host: "localhost:3000"
+  email_address: 'magazyn@ztl.awf.poznan.pl'
+  smtp_settings:
+    :address: 'mailcatcher'
+    :port: 1025
+test:
+  host: "localhost:3000"
+  email_address: 'magazyn@ztl.awf.poznan.pl'
+  smtp_settings:
+    :address: 'mailcatcher'
+    :port: 1025
+production:
+  host: ""
+  email_address: ''
+  smtp_settings:
+    :address: ''
+    :domain: ''
+    :port: 587
+    :user_name: ''
+    :password: ''
+    :authentication: 'plain'
+    :enable_starttls_auto: true
