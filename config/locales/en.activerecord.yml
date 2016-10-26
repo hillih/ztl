@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        last_name: 'Last name'
+        first_name: 'First name'
+        phone: 'Phone'

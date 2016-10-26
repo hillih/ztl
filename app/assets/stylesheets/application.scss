@@ -19,5 +19,8 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 
 @import "gentelella/src/scss/custom.scss";
 @import "fontawesome/css/font-awesome.css";
+@import "animate.css/animate";
 
-@import 'fixes'
+@import 'fixes';
+@import 'form';
+@import 'main';

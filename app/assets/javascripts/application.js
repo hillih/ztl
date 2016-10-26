@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require custom
 //= require fastclick/lib/fastclick.js
+//= require bootstrap-notify

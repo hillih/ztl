@@ -1,0 +1,15 @@
+h1= t('.change_your_password')
+= simple_form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put } do |f|
+  .form-inputs
+    = devise_error_messages!
+    = f.hidden_field :reset_password_token
+    = f.input :password, label: false, placeholder: 'Password', autofocus: true, autocomplete: "off"
+    = f.input :password_confirmation, label: false, placeholder: 'Password configuration', autofocus: true, autocomplete: "off"
+  .row.form-actions
+    .col-xs-12
+      = f.submit t('.change_my_password'), class: ' btn btn-default submit'
+  = render "devise/shared/links"
+  .clearfix
+  .separator
+    div
+      p= '© Copyright 2016 Dawid Hildebrand'

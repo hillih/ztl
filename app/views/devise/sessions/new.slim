@@ -1,0 +1,14 @@
+h1= t('.sign_in')
+= simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+  = devise_error_messages!
+  .form-inputs
+    = f.input :email, label: false, placeholder: 'Email', autofocus: true
+    = f.input :password, label: false, placeholder: 'Password', autocomplete: "off"
+  .row.form-actions
+    .col-xs-12
+      = f.submit t('.sign_in'), class: 'btn btn-default submit'
+  = render "devise/shared/links"
+  .clearfix
+  .separator
+    div
+      p= '© Copyright 2016 Dawid Hildebrand'

@@ -1,0 +1,20 @@
+en:
+  actions:
+    name: 'Actions'
+    add: 'Add'
+    show: 'Show'
+    edit: 'Edit'
+    destroy: 'Destroy'
+    return: 'Return'
+    cancel: 'Cancel'
+  notices:
+    on_update: '%{model_name} user was successfully updated'
+    on_create: '%{model_name} user was successfully created'
+    on_destroy: '%{model_name} user was successfully destroyed'
+    on_not_destroy: '%{model_name} user was not successfully destroyed'
+    are_you_sure: 'Are you sure?'
+  users:
+    index: 'Users'
+    show: 'User: %{name}'
+    new: 'New user'
+    edit: 'Edit user: %{name}'

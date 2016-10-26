@@ -7,6 +7,7 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body.nav-md.footer_fixed data-controller=controller_name data-action=action_name
+    = render 'layouts/flash_messages'
     .container.body
       .main_container
         .col-md-3.left_col.menu_fixed

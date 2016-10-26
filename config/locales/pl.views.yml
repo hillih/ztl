@@ -1,0 +1,20 @@
+pl:
+  actions:
+    name: 'Akcje'
+    add: 'Dodaj'
+    show: 'Podgląd'
+    edit: 'Edytuj'
+    destroy: 'Usuń'
+    return: 'Cofinj'
+    cancel: 'Anuluj'
+  notices:
+    on_update: '%{model_name} został pomyślnie zaktualizowany'
+    on_create: '%{model_name} został pomyślnie utworzony'
+    on_destroy: '%{model_name} został pomyślnie usunięty'
+    on_not_destroy: '%{model_name} nie został pomyślnie usunięty'
+    are_you_sure: 'Czy jesteś pewien?'
+  users:
+    index: 'Użytkownicy'
+    show: 'Użytkownik: %{name}'
+    new: 'Nowy użytkownik'
+    edit: 'Edycja użytkownika: %{name}'
