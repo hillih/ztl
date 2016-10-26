@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   layout :set_layout
 
+  def flash_msg(type, record)
+    t("notices.#{type}", model_name: record.model_name.human)
+  end
+
   private
 
   def set_layout

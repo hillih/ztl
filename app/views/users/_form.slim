@@ -1,0 +1,12 @@
+= simple_form_for @user, html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+  .form-inputs
+    = f.input :last_name, required: true
+    = f.input :first_name, required: true
+    = f.input :email, required: true
+    = f.input :phone
+    - if @user.new_record?
+      = f.input :password, required: true
+      = f.input :password_confirmation, required: true
+  .ln_solid
+  .form-actions.pull-right
+    = f.button :submit, class: 'btn btn-primary'

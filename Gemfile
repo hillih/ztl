@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim', '~> 3.0.7'
 gem 'autoprefixer-rails', '~> 6.4', '>= 6.4.0.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'will_paginate-bootstrap', '~>1.0.1'
 
 gem 'devise', '~> 4.2'
 gem 'devise-i18n', '~> 1.1'

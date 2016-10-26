@@ -1,0 +1,25 @@
+= render '/page_header', 
+  title: t('.'), 
+  action: (btn_add new_user_path, 'md', 'margin-right-0')
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        table.table.table-striped
+          thead
+            tr
+              - %i(last_name first_name email).each do |attribute|
+                th= User.human_attribute_name(attribute)
+              th= t('actions.name')
+          tbody
+            - @users.each do |user|
+              tr
+                td= user.last_name
+                td= user.first_name
+                td= user.email
+                td
+                  = btn_show user_path(user)
+                  = btn_edit edit_user_path(user)
+                  = btn_destroy user_path(user)
+        .pull-right
+          = will_paginate @users, renderer: BootstrapPagination::Rails

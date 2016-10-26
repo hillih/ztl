@@ -9,8 +9,12 @@
       margin-right: 0;
     }
   }
-  
+
   h1:before, h1:after {
     content: none;
   }
+}
+
+.form-actions {
+  padding: 0 5px;
 }
