@@ -5,3 +5,5 @@ pl:
         last_name: 'Nazwisko'
         first_name: 'Imię'
         phone: 'Telefon'
+        sex: &sex 'Płeć'
+        i18n_sex: *sex

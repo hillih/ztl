@@ -5,3 +5,4 @@ en:
         last_name: 'Last name'
         first_name: 'First name'
         phone: 'Phone'
+        sex: 'Sex'

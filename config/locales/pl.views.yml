@@ -7,6 +7,7 @@ pl:
     destroy: 'Usuń'
     return: 'Cofinj'
     cancel: 'Anuluj'
+    crop: 'Wytnij'
   notices:
     on_update: '%{model_name} został pomyślnie zaktualizowany'
     on_create: '%{model_name} został pomyślnie utworzony'
@@ -18,3 +19,13 @@ pl:
     show: 'Użytkownik: %{name}'
     new: 'Nowy użytkownik'
     edit: 'Edycja użytkownika: %{name}'
+    female: 'Kobieta'
+    male: 'Mężczyzna'
+  profiles:
+    title: 'Profil użytkownika'
+    details: 'Szczegóły'
+    avatar: 'Avatar'
+    change_password: 'Zmiana hasła'
+  errors:
+    messages:
+      extension_whitelist_error: 'nie znajduje sie na liście dopuszczalnych wartości'

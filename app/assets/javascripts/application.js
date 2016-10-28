@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require custom
-//= require fastclick/lib/fastclick.js
+//= require fastclick/lib/fastclick
 //= require bootstrap-notify
+//= require cropper
+//= require iCheck/icheck

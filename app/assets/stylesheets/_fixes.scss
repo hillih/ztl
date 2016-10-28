@@ -9,9 +9,6 @@
 }
 
 .nav-md {
-  .main_menu_side {
-    padding-top: 70px;
-  }
   .container.body .right_col {
     padding: 70px 20px 70px 20px;
   }
@@ -50,6 +47,10 @@
 
 .page-title .title_right .pull-right {
   margin: 0;
+}
+
+body[data-controller='profiles'] #crop-avatar {
+  padding-top: 5px;
 }
 
 footer {

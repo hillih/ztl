@@ -1,0 +1,14 @@
+= render 'layout', active: :edit
+  = simple_form_for current_user, url: profile_path, html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+    .form-inputs
+      = f.input :last_name, required: true
+      = f.input :first_name, required: true
+      = f.input :sex
+        = f.input_field :sex, as: :radio_buttons, class: 'flat', disabled: true, collection: User.i18n_collection_sex 
+      = f.input :email, required: true
+      = f.input :phone
+      = f.input :avatar, wrapper: :horizontal_file_input
+      = f.hidden_field :avatar_cache
+    .ln_solid
+    .form-actions.pull-right
+      = f.button :submit, class: 'btn btn-primary'

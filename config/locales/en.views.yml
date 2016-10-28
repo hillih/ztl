@@ -7,6 +7,7 @@ en:
     destroy: 'Destroy'
     return: 'Return'
     cancel: 'Cancel'
+    crop: 'Crop'
   notices:
     on_update: '%{model_name} user was successfully updated'
     on_create: '%{model_name} user was successfully created'
@@ -18,3 +19,11 @@ en:
     show: 'User: %{name}'
     new: 'New user'
     edit: 'Edit user: %{name}'
+    female: 'Female'
+    male: 'Male'
+  profiles:
+    edit: 'User profile'
+    avatar: 'User profile'
+    update_password: 'User profile'
+    details: 'Details'
+    avatar: 'Avatar'

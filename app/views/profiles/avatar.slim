@@ -1,0 +1,9 @@
+= render 'layout', active: :avatar
+  = simple_form_for current_user, url: update_avatar_profile_path, html: {class: 'cropper-form'} do |f|
+    .form-inputs
+      = image_tag(current_user.avatar.url)
+      - %i(crop_x crop_y crop_w crop_h).each do |attribute|
+        = f.hidden_field attribute
+    .ln_solid
+    .form-actions.pull-right
+      = f.button :submit, t('actions.crop'), class: 'btn btn-primary'

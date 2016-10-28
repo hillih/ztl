@@ -1,0 +1,25 @@
+= render '/page_header', 
+  title: t('profiles.title'), 
+  action: nil
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        .col-md-3.col-sm-3.col-xs-12.profile_left
+          .profile_img
+            #crop-avatar
+              = image_tag current_user.avatar.url(:small), class: 'img-responsive avatar-view'
+        .col-md-9.col-sm-9.col-xs-12
+          div data-example-id="togglable-tabs" role="tabpanel" 
+            ul#myTab.nav.nav-tabs.bar_tabs role="tablist" 
+              li class=(active == :edit ? 'active' : nil)
+                = link_to t('profiles.details'), edit_profile_path
+              - if current_user.avatar?
+                li class=(active == :avatar ? 'active' : nil)
+                  = link_to t('profiles.avatar'), avatar_profile_path
+              li class=(active == :password ? 'active' : nil)
+                = link_to t('profiles.change_password'), password_profile_path
+          div
+            = yield
+                

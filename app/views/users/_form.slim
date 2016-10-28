@@ -2,6 +2,8 @@
   .form-inputs
     = f.input :last_name, required: true
     = f.input :first_name, required: true
+    = f.input :sex
+      = f.input_field :sex, as: :radio_buttons, class: 'flat', collection: User.i18n_collection_sex
     = f.input :email, required: true
     = f.input :phone
     - if @user.new_record?
