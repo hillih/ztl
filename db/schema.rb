@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028200327) do
+ActiveRecord::Schema.define(version: 20161029140520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",                     null: false
+    t.string   "symbol"
+    t.text     "permissions", default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["symbol"], name: "index_roles_on_symbol", unique: true, using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,9 +45,12 @@ ActiveRecord::Schema.define(version: 20161028200327) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "sex"
+    t.integer  "role_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "users", "roles"
 end

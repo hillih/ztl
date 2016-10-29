@@ -7,5 +7,7 @@
   .main_menu_side.hidden-print.main_menu
     .menu_section
       ul.nav.side-menu
-        = menu_item(menu_item_is_active?('users'), users_path, t('users.index'), 'users')
-        = menu_item(nil, '#', 'Role', 'cog')
+        - if current_user.can_section?('users')
+          = menu_item(menu_item_is_active?('users'), users_path, t('users.index'), 'users')
+        - if current_user.can_section?('roles')
+          = menu_item(menu_item_is_active?('roles'), roles_path, 'Role', 'cog')

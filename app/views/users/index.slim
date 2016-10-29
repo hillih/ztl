@@ -1,6 +1,6 @@
 = render '/page_header', 
   title: t('.'), 
-  action: (btn_add new_user_path, 'md', 'margin-right-0')
+  action: current_user.can?('users:new') ? (btn_add new_user_path, 'md', 'margin-right-0') : nil
 .row
   .col-xs-12
     .x_panel
@@ -18,8 +18,8 @@
                 td= user.first_name
                 td= user.email
                 td
-                  = btn_show user_path(user)
-                  = btn_edit edit_user_path(user)
-                  = btn_destroy user_path(user)
+                  = btn_show user_path(user) if current_user.can?('users:show')
+                  = btn_edit edit_user_path(user) if current_user.can?('users:edit')
+                  = btn_destroy user_path(user) if current_user.can?('users:destroy')
         .pull-right
           = will_paginate @users, renderer: BootstrapPagination::Rails

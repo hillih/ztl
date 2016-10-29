@@ -12,6 +12,8 @@ class User < ApplicationRecord
     male: 1
   }
 
+  belongs_to :role
+
   before_save :upcase_name
 
   scope :ordered, -> { order(:last_name, :first_name) }
@@ -22,6 +24,19 @@ class User < ApplicationRecord
 
   def name
     "#{last_name} #{first_name}"
+  end
+
+  # is superadmin
+  def is_sa?
+    role.symbol.to_sym == :sa
+  end
+
+  def can_section?(section_name)
+    role.permissions.any? { |permission| permission.include? section_name }
+  end
+
+  def can?(permission)
+    role.permissions.include?(permission)
   end
 
   private

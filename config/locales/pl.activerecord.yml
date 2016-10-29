@@ -7,3 +7,10 @@ pl:
         phone: 'Telefon'
         sex: &sex 'Płeć'
         i18n_sex: *sex
+        role: 'Rola'
+      role:
+        name: 'Nazwa'
+        symbol: 'Symbol'
+        permissions: 'Uprawnienia'
+    models:
+      role: 'Rola'

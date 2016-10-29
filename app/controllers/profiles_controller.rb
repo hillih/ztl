@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   def update
     if current_user.update(update_params)
-      path = params[:user][:avatar] || params[:user][:avatar_cache] ? avatar_profile_path : edit_profile_path
+      path = params[:user][:avatar] ? avatar_profile_path : edit_profile_path
       redirect_to path, notice: flash_msg(:on_update, current_user)
     else
       render :edit

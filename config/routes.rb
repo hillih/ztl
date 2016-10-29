@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       patch :"update_#{resource}", on: :member
     end
   end
+  resources :roles
 end

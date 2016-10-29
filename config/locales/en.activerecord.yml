@@ -5,4 +5,10 @@ en:
         last_name: 'Last name'
         first_name: 'First name'
         phone: 'Phone'
-        sex: 'Sex'
+        sex: &sex 'Sex'
+        i18n_sex: *sex
+        role: 'Role'
+      role:
+        name: 'Name'
+        symbol: 'Symbol'
+        permissions: 'Permissions'

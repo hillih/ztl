@@ -14,6 +14,8 @@ pl:
     on_destroy: '%{model_name} został pomyślnie usunięty'
     on_not_destroy: '%{model_name} nie został pomyślnie usunięty'
     are_you_sure: 'Czy jesteś pewien?'
+    delete_restriction_error: 'Nie można usuąć ponieważ posiada zależności'
+    permission_denied: 'Nie posiadasz uprawnień do wykonania tej akcji'
   users:
     index: 'Użytkownicy'
     show: 'Użytkownik: %{name}'
@@ -26,6 +28,20 @@ pl:
     details: 'Szczegóły'
     avatar: 'Avatar'
     change_password: 'Zmiana hasła'
+  roles:
+    index: 'Role'
+    show: 'Rola: %{name}'
+    new: 'Nowa rola'
+    edit: 'Edycja roli: %{name}'
+    section:
+      users: 'Użytkownicy'
+      roles: 'Role'
+    action:
+      show: 'Podgląd'
+      new: 'Dodawanie'
+      edit: 'Edytowanie'
+      destroy: 'Usuwanie'
+    symbol_is_not_unique: 'Symbol jest już zajęty'
   errors:
     messages:
       extension_whitelist_error: 'nie znajduje sie na liście dopuszczalnych wartości'

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
   before_action :get_user, except: [:index, :new, :create]
 
   def index
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
   private
 
   def create_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :last_name, :first_name, :phone, :sex)
+    params.require(:user).permit(:email, :password, :password_confirmation, :last_name, :first_name, :phone, :sex, :role_id)
   end
 
   def update_params
-    params.require(:user).permit(:email, :last_name, :first_name, :phone, :sex)
+    params.require(:user).permit(:email, :last_name, :first_name, :phone, :sex, :role_id)
   end
 
   def get_user

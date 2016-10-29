@@ -6,6 +6,7 @@
       = f.input_field :sex, as: :radio_buttons, class: 'flat', collection: User.i18n_collection_sex
     = f.input :email, required: true
     = f.input :phone
+    = f.association :role, collection: Role.available_for(current_user)
     - if @user.new_record?
       = f.input :password, required: true
       = f.input :password_confirmation, required: true

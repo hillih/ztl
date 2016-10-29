@@ -14,6 +14,8 @@ en:
     on_destroy: '%{model_name} user was successfully destroyed'
     on_not_destroy: '%{model_name} user was not successfully destroyed'
     are_you_sure: 'Are you sure?'
+    delete_restriction_error: 'Cannot delete record because of dependent'
+    permission_denied: 'You do not have permission to perform this action'
   users:
     index: 'Users'
     show: 'User: %{name}'
@@ -27,3 +29,17 @@ en:
     update_password: 'User profile'
     details: 'Details'
     avatar: 'Avatar'
+  roles:
+    index: 'Roles'
+    show: 'Role: %{name}'
+    new: 'New role'
+    edit: 'Edit role: %{name}'
+    section:
+      users: 'Users'
+      roles: 'Roles'
+    action:
+      show: 'Show'
+      new: 'Add'
+      edit: 'Edit'
+      destroy: 'Remove'
+    symbol_is_not_unique: 'Symbol is not unique'

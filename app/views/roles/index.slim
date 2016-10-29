@@ -1,0 +1,23 @@
+= render '/page_header', 
+  title: t('.'), 
+  action: current_user.can?('roles:new') ? (btn_add new_role_path, 'md', 'margin-right-0') : nil
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        table.table.table-striped
+          thead
+            tr
+              - %i(name).each do |attribute|
+                th= Role.human_attribute_name(attribute)
+              th= t('actions.name')
+          tbody
+            - @roles.each do |role|
+              tr
+                td= role.name
+                td
+                  = btn_show role_path(role) if current_user.can?('roles:show')
+                  = btn_edit edit_role_path(role) if current_user.can?('roles:edit') 
+                  = btn_destroy role_path(role) if current_user.can?('roles:destroy')
+        .pull-right
+          = will_paginate @roles, renderer: BootstrapPagination::Rails
