@@ -1,0 +1,8 @@
+= simple_form_for [@outfit_category, @outfit_element], html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+  .form-inputs
+    = f.input :symbol
+    = f.input :awf_code
+    = f.association :outfit_category, collection: OutfitCategory.last_category.map { |oc| [oc.name_with_full_symbol, oc.id] }
+  .ln_solid
+  .form-actions.pull-right
+    = f.button :submit, class: 'btn btn-primary'

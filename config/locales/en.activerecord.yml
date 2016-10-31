@@ -10,5 +10,29 @@ en:
         role: 'Role'
       role:
         name: 'Name'
-        symbol: 'Symbol'
+        symbol: &symbol 'Symbol'
         permissions: 'Permissions'
+      outfit_element_type:
+        name: 'Name'
+        symbol: *symbol
+        sex: *sex
+        i18n_sex: *sex
+        position: 'Position'
+      outfit_category:
+        name: 'Name'
+        symbol: *symbol
+        full_symbol: &full_symbol 'Full symbol'
+        last_category: 'Last category'
+        re_hire: 'Re-hire'
+        parent: 'Parent'
+        outfit_element_type: 'Outfit element type'
+      outfit_element:
+        symbol: *symbol
+        full_symbol: *full_symbol
+        awf_code: 'AWF code'
+        rented: 'rented'
+    models:
+      role: 'Role'
+      outfit_element_type: 'Outfit element type'
+      outfit_category: 'Outfit category'
+      outfit_element: 'Outfit element'

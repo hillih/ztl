@@ -4,10 +4,23 @@
       = image_tag 'logo.png', class: 'img-circle.profile_img'
       span ZTL Magazyn
   .clearfix
-  .main_menu_side.hidden-print.main_menu
+  #sidebar-menu.main_menu_side.hidden-print.main_menu
     .menu_section
       ul.nav.side-menu
         - if current_user.can_section?('users')
-          = menu_item(menu_item_is_active?('users'), users_path, t('users.index'), 'users')
+          = menu_item(menu_item_is_active?('users'), users_path, t('sidebar.users'), 'users')
         - if current_user.can_section?('roles')
-          = menu_item(menu_item_is_active?('roles'), roles_path, 'Role', 'cog')
+          = menu_item(menu_item_is_active?('roles'), roles_path, t('sidebar.roles'), 'cog')
+        - if current_user.can_section?('outfit_element_types')
+          li class=[menu_item_is_active?('outfit_element_types') || menu_item_is_active?('outfit_categories') || menu_item_is_active?('outfit_elements')]
+            a.in-submenu
+              i.fa.fa-building
+              = t('sidebar.magazine')
+              span.fa.fa-chevron-down
+            ul.nav.child_menu style=(controller_name == 'outfit_element_types' || controller_name == 'outfit_categories' || controller_name == 'outfit_elements' ? 'display: block' : nil)
+              - if current_user.can_section?('outfit_categories')
+                li class=[menu_item_is_active?('outfit_categories') || menu_item_is_active?('outfit_elements')]
+                  = link_to t('sidebar.outfit'), outfit_categories_path
+              - if current_user.can_section?('outfit_element_types')
+                li class=menu_item_is_active?('outfit_element_types')
+                  = link_to t('sidebar.outfit_element_types'), outfit_element_types_path

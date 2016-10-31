@@ -31,7 +31,7 @@ $(document).ready(function() {
         $RIGHT_COL.css('min-height', contentHeight);
     };
 
-    $SIDEBAR_MENU.find('a').on('click', function(ev) {
+    $SIDEBAR_MENU.find('a.in-submenu').on('click', function(ev) {
         var $li = $(this).parent();
 
         if ($li.is('.active')) {

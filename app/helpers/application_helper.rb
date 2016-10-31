@@ -33,10 +33,10 @@ module ApplicationHelper
     end
   end
 
-  def btn_add(link, size = 'xs', additional_classes = nil)
+  def btn_add(link, size = 'xs', additional_classes = nil, label = nil)
     link_to link, class: "btn btn-success btn-#{size} #{additional_classes}" do
       content_tag(:i, nil, class: 'fa fa-plus') +
-        t('actions.add')
+        (label.nil? ? t('actions.add') : label)
     end
   end
 
@@ -51,6 +51,17 @@ module ApplicationHelper
     link_to link, class: "btn btn-dark btn-#{size} #{additional_classes}" do
       content_tag(:i, nil, class: 'fa fa-reply') +
         t('actions.return')
+    end
+  end
+
+  def value(attribute)
+    case attribute
+    when TrueClass
+      t('boolean.true')
+    when FalseClass
+      t('boolean.false')
+    else
+      attribute
     end
   end
 end

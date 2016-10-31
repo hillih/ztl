@@ -1,0 +1,10 @@
+= simple_form_for @outfit_element_type, html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :symbol
+    = f.input :position
+    = f.input :sex
+      = f.input_field :sex, as: :radio_buttons, class: 'flat', collection: OutfitElementType.i18n_collection_sex
+  .ln_solid
+  .form-actions.pull-right
+    = f.button :submit, class: 'btn btn-primary'

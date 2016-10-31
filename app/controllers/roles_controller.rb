@@ -1,6 +1,5 @@
 class RolesController < BaseController
   before_action :get_role, except: [:index, :new, :create]
-  rescue_from ActiveRecord::RecordNotUnique, with: :record_not_unique
 
   def index
     @roles = Role.all.page(params[:page])
@@ -45,7 +44,10 @@ class RolesController < BaseController
     @role = Role.find(params[:id])
   end
 
-  def record_not_unique
-    redirect_to :back, alert: t('roles.symbol_is_not_unique')
+  def duplicate_index
+    message = if $ERROR_INFO.original_exception.error.include?('index_roles_on_symbol')
+                t('errors.messages.duplicate_index.index_roles_on_symbol')
+    end
+    redirect_to :back, alert: message
   end
 end

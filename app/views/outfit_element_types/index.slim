@@ -1,0 +1,33 @@
+= render '/page_header', 
+  title: t('.'), 
+  actions: [current_user.can?('outfit_element_types:new') ? (btn_add new_outfit_element_type_path, 'md', 'margin-right-0') : nil]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        .col-xs-12
+          ul.nav.nav-tabs.bar_tabs
+            li
+              = link_to t('sidebar.outfit'), outfit_categories_path
+            li.active
+              = link_to t('sidebar.outfit_element_types'), outfit_element_types_path
+          div
+            table.table.table-striped
+              thead
+                tr
+                  - %i(position name symbol i18n_sex).each do |attribute|
+                    th= OutfitElementType.human_attribute_name(attribute)
+                  th= t('actions.name')
+              tbody
+                - @outfit_element_types.each do |outfit_element_type|
+                  tr
+                    td= outfit_element_type.position
+                    td= outfit_element_type.name
+                    td= outfit_element_type.symbol
+                    td= outfit_element_type.i18n_sex
+                    td
+                      = btn_edit edit_outfit_element_type_path(outfit_element_type) if current_user.can?('outfit_element_types:edit') 
+                      = btn_destroy outfit_element_type_path(outfit_element_type) if current_user.can?('outfit_element_types:destroy')
+            .pull-right
+              = will_paginate @outfit_element_type, renderer: BootstrapPagination::Rails

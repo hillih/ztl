@@ -10,7 +10,30 @@ pl:
         role: 'Rola'
       role:
         name: 'Nazwa'
-        symbol: 'Symbol'
+        symbol: &symbol 'Symbol'
         permissions: 'Uprawnienia'
+      outfit_element_type:
+        name: 'Nazwa'
+        symbol: *symbol
+        sex: *sex
+        i18n_sex: *sex
+        position: 'Pozycja'
+      outfit_category:
+        name: 'Nazwa'
+        symbol: *symbol
+        full_symbol: &full_symbol 'Pełen sybmol'
+        last_category: 'Ostatnia kategoria'
+        re_hire: 'Wielokrotnego wypożyczenia'
+        parent: 'Nadkategoria'
+        outfit_element_type: 'Typ elemntu stroju'
+      outfit_element:
+        symbol: *symbol
+        full_symbol: *full_symbol
+        awf_code: 'Kod AWF'
+        rented: 'Wypożyczony'
+        outfit_category: 'Kategoria'
     models:
       role: 'Rola'
+      outfit_element_type: 'Typ elemntów stroju'
+      outfit_category: 'Kategoria stroju'
+      outfit_element: 'Element stroju'

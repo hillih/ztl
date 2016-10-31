@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029140520) do
+ActiveRecord::Schema.define(version: 20161029185952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "outfit_categories", force: :cascade do |t|
+    t.integer  "parent_id"
+    t.integer  "outfit_element_type_id"
+    t.string   "name",                                   null: false
+    t.string   "symbol",                                 null: false
+    t.string   "full_symbol"
+    t.boolean  "last_category",          default: false
+    t.boolean  "re_hire",                default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index ["outfit_element_type_id"], name: "index_outfit_categories_on_outfit_element_type_id", using: :btree
+    t.index ["parent_id", "symbol"], name: "index_outfit_categories_on_parent_id_and_symbol", unique: true, using: :btree
+    t.index ["parent_id"], name: "index_outfit_categories_on_parent_id", using: :btree
+  end
+
+  create_table "outfit_element_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "symbol",     null: false
+    t.integer  "sex",        null: false
+    t.integer  "position",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sex", "position"], name: "index_outfit_element_types_on_sex_and_position", unique: true, using: :btree
+    t.index ["symbol"], name: "index_outfit_element_types_on_symbol", unique: true, using: :btree
+  end
+
+  create_table "outfit_elements", force: :cascade do |t|
+    t.integer  "outfit_category_id"
+    t.string   "symbol"
+    t.string   "full_symbol"
+    t.string   "awf_code"
+    t.boolean  "rented",             default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["outfit_category_id", "symbol"], name: "index_outfit_elements_on_outfit_category_id_and_symbol", unique: true, using: :btree
+    t.index ["outfit_category_id"], name: "index_outfit_elements_on_outfit_category_id", using: :btree
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",                     null: false
@@ -52,5 +90,8 @@ ActiveRecord::Schema.define(version: 20161029140520) do
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "outfit_categories", "outfit_categories", column: "parent_id"
+  add_foreign_key "outfit_categories", "outfit_element_types"
+  add_foreign_key "outfit_elements", "outfit_categories"
   add_foreign_key "users", "roles"
 end

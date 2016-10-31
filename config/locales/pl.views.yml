@@ -1,4 +1,7 @@
 pl:
+  boolean:
+    "true": 'Tak'
+    "false": 'Nie'
   actions:
     name: 'Akcje'
     add: 'Dodaj'
@@ -8,6 +11,8 @@ pl:
     return: 'Cofinj'
     cancel: 'Anuluj'
     crop: 'Wytnij'
+    add_category: 'Dodaj kategorie'
+    add_element: 'Dodaj element'
   notices:
     on_update: '%{model_name} został pomyślnie zaktualizowany'
     on_create: '%{model_name} został pomyślnie utworzony'
@@ -16,6 +21,12 @@ pl:
     are_you_sure: 'Czy jesteś pewien?'
     delete_restriction_error: 'Nie można usuąć ponieważ posiada zależności'
     permission_denied: 'Nie posiadasz uprawnień do wykonania tej akcji'
+  sidebar:
+    users: 'Użytkownicy'
+    roles: 'Role'
+    magazine: 'Magazyn'
+    outfit: 'Stroje'
+    outfit_element_types: 'Typy elementów stroju'
   users:
     index: 'Użytkownicy'
     show: 'Użytkownik: %{name}'
@@ -36,12 +47,38 @@ pl:
     section:
       users: 'Użytkownicy'
       roles: 'Role'
+      outfit_element_types: 'Typy elementów stroju'
+      outfit_categories: 'Kategorie stroju'
+      outfit_elements: 'Elementy stroju'
     action:
       show: 'Podgląd'
       new: 'Dodawanie'
       edit: 'Edytowanie'
       destroy: 'Usuwanie'
-    symbol_is_not_unique: 'Symbol jest już zajęty'
+  outfit_element_types:
+    index: 'Typy elementów stroju'
+    new: 'Nowy typ elementów stroju'
+    edit: 'Edycja typu elementów stroju: %{name}'
+    female: 'Kobieta'
+    male: 'Mężczyzna'
+  outfit_categories:
+    index: 'Stroje'
+    show: 'Kategoria: %{name}'
+    new: 'Nowa kategoria'
+    edit: 'Edycja kategorii: %{name}'
+    subcategories: 'Podkategorie'
+    elements: 'Elementy'
+  outfit_elements:
+    show: 'Element %{element_name} dla kategorii %{category_name}'
+    new: 'Nowy element dla kategorii: %{category_name}'
+    edit: 'Edycja elementu %{element_name} dla kategorii: %{category_name}'
   errors:
     messages:
       extension_whitelist_error: 'nie znajduje sie na liście dopuszczalnych wartości'
+      duplicate_index:
+        universal: 'Wprowadzone dane nie są unikatowe'
+        index_outfit_categories_on_parent_id_and_symbol: 'Dla wybranej kategorii istnieje już podkategoria z podanym symbolem'
+        index_outfit_element_types_on_symbol: 'Symbol jest już zajęty'
+        index_outfit_element_types_on_sex_and_position: 'Dla wybranej płci istnieje już taka pozycja'
+        index_roles_on_symbol: 'Symbol jest już zajęty'
+        index_outfit_elements_on_outfit_category_id_and_symbol: 'Dla wybranej kategorii istnieje już element z podanym symbolem'

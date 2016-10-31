@@ -1,0 +1,10 @@
+= render '/page_header',
+  title: t('.', element_name: @outfit_element.symbol, category_name: @outfit_category.name_with_full_symbol),
+  actions: [(btn_cancel outfit_category_path(@outfit_category), 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        = render 'form'
+            

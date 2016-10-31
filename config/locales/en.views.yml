@@ -1,4 +1,7 @@
 en:
+  boolean:
+    "true": 'Yes'
+    "false": 'No'
   actions:
     name: 'Actions'
     add: 'Add'
@@ -8,6 +11,8 @@ en:
     return: 'Return'
     cancel: 'Cancel'
     crop: 'Crop'
+    add_category: 'Add category'
+    add_element: 'Add element'
   notices:
     on_update: '%{model_name} user was successfully updated'
     on_create: '%{model_name} user was successfully created'
@@ -16,6 +21,12 @@ en:
     are_you_sure: 'Are you sure?'
     delete_restriction_error: 'Cannot delete record because of dependent'
     permission_denied: 'You do not have permission to perform this action'
+  sidebar:
+    users: 'Users'
+    roles: 'Roles'
+    magazine: 'Magazine'
+    outfit: 'Outfit'
+    outfit_element_types: 'Outfit element types'
   users:
     index: 'Users'
     show: 'User: %{name}'
@@ -37,9 +48,37 @@ en:
     section:
       users: 'Users'
       roles: 'Roles'
+      outfit_element_types: 'Outfit element types'
+      outfit_categories: 'Outfit categories'
+      outfit_elements: 'Outfit elements'
     action:
       show: 'Show'
       new: 'Add'
       edit: 'Edit'
       destroy: 'Remove'
-    symbol_is_not_unique: 'Symbol is not unique'
+  outfit_element_types:
+    index: 'Outfit element types'
+    new: 'New outfit element type'
+    edit: 'Edit outfit element type: %{name}'
+    female: 'Female'
+    male: 'Male'
+  outfit_categories:
+    index: 'Outfit'
+    show: 'Category: %{name}'
+    new: 'New category'
+    edit: 'Edit category: %{name}'
+    subcategories: 'Subcategories'
+    elements: 'Elements'
+  outfit_elements:
+    show: 'Element %{element_name} for category %(category_name)'
+    new: 'New element for category: %{category_name}'
+    edit: 'Edit element %{element_name} for category: %{category_name}'
+  errors:
+    messages:
+      duplicate_index:
+        universal: 'The entered data are not unique'
+        index_outfit_categories_on_parent_id_and_symbol: 'For the selected category already exists subcategory of the specified symbol'
+        index_outfit_element_types_on_symbol: 'The symbol is already busy'
+        index_outfit_element_types_on_sex_and_position: 'For the selected gender is already such a position'
+        index_roles_on_symbol: 'Symbol is not unique'
+        index_outfit_elements_on_outfit_category_id_and_symbol: 'For the selected category, there is already an element of the specified symbol'

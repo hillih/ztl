@@ -1,0 +1,17 @@
+= render '/page_header', 
+  title: t('.', element_name: @outfit_element.symbol, category_name: @outfit_category.name_with_full_symbol), 
+  actions: [(btn_return outfit_category_path(@outfit_category), 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        .col-md-5.col-sm-5.col-xs-12
+          dl.dl-horizontal
+            - %i(symbol full_symbol awf_code rented outfit_category).each do |attribute|
+              dt= OutfitElement.human_attribute_name(attribute)
+              dd= value @outfit_element.send(attribute)
+          .pull-right
+            => btn_edit edit_outfit_category_outfit_element_path(@outfit_category, @outfit_element), 'md', 'margin-right-0' if current_user.can?('outfit_elements:edit') 
+            = btn_destroy outfit_category_outfit_element_path(@outfit_category, @outfit_element), 'md', 'margin-right-0' if current_user.can?('outfit_elements:destroy')
+        .col-md-7.col-sm-7.col-xs-12

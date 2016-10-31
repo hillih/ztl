@@ -1,0 +1,17 @@
+table.table.table-striped
+  thead
+    tr
+      - %i(name symbol).each do |attribute|
+        th= OutfitCategory.human_attribute_name(attribute)
+      th= t('actions.name')
+  tbody
+    - outfit_categories.each do |outfit_category|
+      tr
+        td= outfit_category.name
+        td= outfit_category.symbol
+        td
+          = btn_show outfit_category_path(outfit_category) if current_user.can?('outfit_categories:show') 
+          = btn_edit edit_outfit_category_path(outfit_category) if current_user.can?('outfit_categories:edit') 
+          = btn_destroy outfit_category_path(outfit_category) if current_user.can?('outfit_categories:destroy')
+.pull-right
+  = will_paginate outfit_categories, renderer: BootstrapPagination::Rails

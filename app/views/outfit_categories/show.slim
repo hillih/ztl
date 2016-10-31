@@ -1,0 +1,41 @@
+= render '/page_header', 
+  title: t('.', name: @outfit_category.name), 
+  actions: [current_user.can?('outfit_categories:new') && !@outfit_category.last_category ? (btn_add new_outfit_category_path, 'md', '', t('actions.add_category')) : nil,
+            current_user.can?('outfit_elements:new') && @outfit_category.last_category ? (btn_add new_outfit_category_outfit_element_path(@outfit_category), 'md', '', t('actions.add_element')) : nil,
+            (btn_return @outfit_category.parent_id ? outfit_category_path(@outfit_category.parent) : outfit_categories_path, 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        .col-md-5.col-sm-5.col-xs-12
+          dl.dl-horizontal
+            - %i(name symbol full_symbol last_category re_hire parent outfit_element_type).each do |attribute|
+              dt= OutfitCategory.human_attribute_name(attribute)
+              dd= value @outfit_category.send(attribute)
+          .pull-right
+            => btn_edit edit_outfit_category_path(@outfit_category), 'md', 'margin-right-0' if current_user.can?('outfit_categories:edit')
+            = btn_destroy outfit_category_path(@outfit_category), 'md', 'margin-right-0' if current_user.can?('outfit_categories:destroy')
+        .col-md-7.col-sm-7.col-xs-12
+          - if @outfit_elements
+            h3= t('outfit_categories.elements')
+            table.table.table-striped
+              thead
+                tr
+                  - %i(symbol rented).each do |attribute|
+                    th= OutfitElement.human_attribute_name(attribute)
+                  th= t('actions.name')
+              tbody
+                - @outfit_elements.each do |outfit_element|
+                  tr
+                    td= outfit_element.symbol
+                    td= value outfit_element.rented
+                    td
+                      = btn_show outfit_category_outfit_element_path(@outfit_category, outfit_element) if current_user.can?('outfit_elements:show') 
+                      = btn_edit edit_outfit_category_outfit_element_path(@outfit_category, outfit_element) if current_user.can?('outfit_elements:edit') 
+                      = btn_destroy outfit_category_outfit_element_path(@outfit_category, outfit_element) if current_user.can?('outfit_elements:destroy')
+            .pull-right
+              = will_paginate @outfit_elements, renderer: BootstrapPagination::Rails
+          - else
+            h3= t('outfit_categories.subcategories')
+            = render 'table', outfit_categories: @subcategories

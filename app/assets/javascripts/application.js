@@ -18,3 +18,4 @@
 //= require bootstrap-notify
 //= require cropper
 //= require iCheck/icheck
+//= require outfit_category

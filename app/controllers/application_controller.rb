@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   layout :set_layout
 
   rescue_from ActiveRecord::DeleteRestrictionError, with: :restrict_dependent_destroy
+  rescue_from ActiveRecord::RecordNotUnique, with: :duplicate_index
 
   def flash_msg(type, record)
     t("notices.#{type}", model_name: record.model_name.human)
@@ -12,14 +13,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def restrict_dependent_destroy(_e)
+  def restrict_dependent_destroy
     redirect_to :back, alert: t('notices.delete_restriction_error')
   end
 
   def check_permissions
     case params[:action]
     when 'index'
-      permission_denied unless current_user.can_section?("#{controller_name}:show")
+      permission_denied unless current_user.can_section?(controller_name)
     when 'show'
       permission_denied unless current_user.can?("#{controller_name}:show")
     when 'new', 'create'
@@ -41,5 +42,9 @@ class ApplicationController < ActionController::Base
 
   def set_layout
     devise_controller? ? 'devise' : 'application'
+  end
+
+  def duplicate_index
+    redirect_to :back, alert: t('errors.message.duplicate_index.universal')
   end
 end

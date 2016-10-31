@@ -1,8 +1,8 @@
 .page-title
   .title_left
     h3.pull-left= title
-  - if action
-    .title_right
-      .pull-right
+  .title_right
+    .pull-right
+      - actions.each do |action|
         = action
 .clearfix

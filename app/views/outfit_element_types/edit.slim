@@ -1,0 +1,10 @@
+= render '/page_header',
+  title: t('.', name: @outfit_element_type.name),
+  actions: [(btn_cancel outfit_element_types_path, 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        = render 'form'
+            

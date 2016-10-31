@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     end
   end
   resources :roles
+  resources :outfit_element_types, except: :show
+  resources :outfit_categories do
+    resources :outfit_elements, except: :index
+  end
 end

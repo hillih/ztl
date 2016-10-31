@@ -1,6 +1,6 @@
 = render '/page_header', 
   title: t('.'), 
-  action: current_user.can?('users:new') ? (btn_add new_user_path, 'md', 'margin-right-0') : nil
+  actions: [current_user.can?('users:new') ? (btn_add new_user_path, 'md', 'margin-right-0') : nil]
 .row
   .col-xs-12
     .x_panel

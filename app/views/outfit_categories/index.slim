@@ -1,0 +1,16 @@
+= render '/page_header', 
+  title: t('.'), 
+  actions: [current_user.can?('outfit_categories:new') ? (btn_add new_outfit_category_path, 'md', 'margin-right-0', t('actions.add_category')) : nil]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        .col-xs-12
+          ul.nav.nav-tabs.bar_tabs
+            li.active
+              = link_to t('sidebar.outfit'), outfit_categories_path
+            li
+              = link_to t('sidebar.outfit_element_types'), outfit_element_types_path
+          div
+            = render 'table', outfit_categories: @outfit_categories
