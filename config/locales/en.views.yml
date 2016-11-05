@@ -82,3 +82,4 @@ en:
         index_outfit_element_types_on_sex_and_position: 'For the selected gender is already such a position'
         index_roles_on_symbol: 'Symbol is not unique'
         index_outfit_elements_on_outfit_category_id_and_symbol: 'For the selected category, there is already an element of the specified symbol'
+        index_outfit_categories_on_symbol: 'Symbol is not unique'

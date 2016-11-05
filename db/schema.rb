@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029185952) do
+ActiveRecord::Schema.define(version: 20161105193155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161029185952) do
     t.index ["outfit_element_type_id"], name: "index_outfit_categories_on_outfit_element_type_id", using: :btree
     t.index ["parent_id", "symbol"], name: "index_outfit_categories_on_parent_id_and_symbol", unique: true, using: :btree
     t.index ["parent_id"], name: "index_outfit_categories_on_parent_id", using: :btree
+    t.index ["symbol"], name: "index_outfit_categories_on_symbol", unique: true, where: "(parent_id IS NULL)", using: :btree
   end
 
   create_table "outfit_element_types", force: :cascade do |t|

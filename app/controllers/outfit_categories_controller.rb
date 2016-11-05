@@ -52,6 +52,8 @@ class OutfitCategoriesController < BaseController
   def duplicate_index
     message = if $ERROR_INFO.original_exception.error.include?('index_outfit_categories_on_parent_id_and_symbol')
                 t('errors.messages.duplicate_index.index_outfit_categories_on_parent_id_and_symbol')
+              elsif $ERROR_INFO.original_exception.error.include?('index_outfit_categories_on_symbol')
+                t('errors.messages.duplicate_index.index_outfit_categories_on_symbol')
     end
     redirect_to :back, alert: message
   end
