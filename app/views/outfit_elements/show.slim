@@ -9,8 +9,7 @@
         .col-md-5.col-sm-5.col-xs-12
           dl.dl-horizontal
             - %i(symbol full_symbol awf_code rented outfit_category).each do |attribute|
-              dt= OutfitElement.human_attribute_name(attribute)
-              dd= value @outfit_element.send(attribute)
+              = dl_item(@outfit_element, attribute)
           .pull-right
             => btn_edit edit_outfit_category_outfit_element_path(@outfit_category, @outfit_element), 'md', 'margin-right-0' if current_user.can?('outfit_elements:edit') 
             = btn_destroy outfit_category_outfit_element_path(@outfit_category, @outfit_element), 'md', 'margin-right-0' if current_user.can?('outfit_elements:destroy')

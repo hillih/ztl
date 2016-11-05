@@ -9,16 +9,15 @@
         .col-xs-12
           dl.dl-horizontal
             - %i(name symbol).each do |attribute|
-              dt= Role.human_attribute_name(attribute)
-              dd= @role.send(attribute)
-            dt= Role.human_attribute_name(:permissions)
+              = dl_item(@role, attribute)
+            = dl_term(@role, :permissions)
             dd
               .row
                 - @role.map_to_i18n.each do |a|
                   .col-xs-6.col-sm-4.col-md-3
                     p= a[0]
                     ul.padding-left-15
-                      -a[1].each do |b|
+                      - a[1].each do |b|
                         li= b
           .pull-right
             => btn_edit edit_role_path(@role), 'md', 'margin-right-0' if current_user.can?('roles:edit')

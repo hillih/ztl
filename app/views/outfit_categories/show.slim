@@ -11,8 +11,7 @@
         .col-md-5.col-sm-5.col-xs-12
           dl.dl-horizontal
             - %i(name symbol full_symbol last_category re_hire parent outfit_element_type).each do |attribute|
-              dt= OutfitCategory.human_attribute_name(attribute)
-              dd= value @outfit_category.send(attribute)
+              = dl_item(@outfit_category, attribute)
           .pull-right
             => btn_edit edit_outfit_category_path(@outfit_category), 'md', 'margin-right-0' if current_user.can?('outfit_categories:edit')
             = btn_destroy outfit_category_path(@outfit_category), 'md', 'margin-right-0' if current_user.can?('outfit_categories:destroy')
@@ -28,8 +27,8 @@
               tbody
                 - @outfit_elements.each do |outfit_element|
                   tr
-                    td= outfit_element.symbol
-                    td= value outfit_element.rented
+                    - %i(symbol rented).each do |attribute|
+                      td= value_parser(outfit_element, attribute)
                     td
                       = btn_show outfit_category_outfit_element_path(@outfit_category, outfit_element) if current_user.can?('outfit_elements:show') 
                       = btn_edit edit_outfit_category_outfit_element_path(@outfit_category, outfit_element) if current_user.can?('outfit_elements:edit') 
