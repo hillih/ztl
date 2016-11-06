@@ -1,11 +1,11 @@
-= simple_form_for @outfit_category, html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+= simple_form_for @outfit_category do |f|
   .form-inputs
-    = f.input :last_category, input_html: { class: 'flat' }
-    = f.input :re_hire, input_html: { class: 'flat' }
+    = f.input :last_category
+    = f.input :re_hire
     = f.input :name
     = f.association :outfit_element_type, collection: OutfitElementType.all.map { |oet| [oet.name, oet.id, {'data-symbol' => oet.symbol}] }
     = f.input :symbol
     = f.association :parent, collection: OutfitCategory.ordered.map { |oc| [oc.name_with_full_symbol, oc.id] }
   .ln_solid
   .form-actions.pull-right
-    = f.button :submit, class: 'btn btn-primary'
+    = f.button :submit

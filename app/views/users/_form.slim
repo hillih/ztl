@@ -1,9 +1,9 @@
-= simple_form_for @user, html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+= simple_form_for @user do |f|
   .form-inputs
     = f.input :last_name, required: true
     = f.input :first_name, required: true
     = f.input :sex
-      = f.input_field :sex, as: :radio_buttons, class: 'flat', collection: User.i18n_collection_sex
+      = f.input_field :sex, as: :radio_buttons, collection: User.i18n_collection_sex
     = f.input :email, required: true
     = f.input :phone
     = f.association :role, collection: Role.available_for(current_user)
@@ -12,4 +12,4 @@
       = f.input :password_confirmation, required: true
   .ln_solid
   .form-actions.pull-right
-    = f.button :submit, class: 'btn btn-primary'
+    = f.button :submit

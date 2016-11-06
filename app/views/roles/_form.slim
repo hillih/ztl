@@ -1,4 +1,4 @@
-= simple_form_for @role, html: { class: 'form-horizontal' },  wrapper: :horizontal_form do |f|
+= simple_form_for @role do |f|
   .form-inputs
     = f.input :name
     = f.input :symbol
@@ -6,8 +6,8 @@
       .row
       - Permission::ALL.group_by { |permission| permission.split(':').first }.each do |group, permissions|
         .col-xs-6.col-sm-4.col-md-3
-          = f.input :permissions, collection: permissions, as: :check_boxes, include_hidden: false, input_html: {class: 'flat'},
+          = f.input :permissions, collection: permissions, as: :check_boxes, include_hidden: false, wrapper: :vertical_radio_and_checkboxes,
             label: t("roles.section.#{group}"), label_method: -> (permission) { t("roles.action.#{permission.split(':').last}") }
   .ln_solid
   .form-actions.pull-right
-    = f.button :submit, class: 'btn btn-primary'
+    = f.button :submit
