@@ -40,6 +40,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.5.1'
 
 gem 'acts_as_sane_tree', '~> 2.0.6'
+gem 'date_validator', '~> 0.9.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

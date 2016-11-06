@@ -1,0 +1,25 @@
+= render '/page_header', 
+  title: t('.'), 
+  actions: [current_user.can?('events:new') ? (btn_add new_event_path, 'md', 'margin-right-0') : nil]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        table.table.table-striped
+          thead
+            tr
+              - %i(name start_at end_at division).each do |attribute|
+                th= Event.human_attribute_name(attribute)
+              th= t('actions.name')
+          tbody
+            - @events.each do |event|
+              tr
+                - %i(name start_at end_at division).each do |attribute|
+                  td= value_parser event, attribute
+                td
+                  = btn_show event_path(event) if current_user.can?('events:show') 
+                  = btn_edit edit_event_path(event) if current_user.can?('events:edit') 
+                  = btn_destroy event_path(event) if current_user.can?('events:destroy')
+        .pull-right
+          = will_paginate @events, renderer: BootstrapPagination::Rails

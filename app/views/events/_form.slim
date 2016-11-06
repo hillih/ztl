@@ -1,0 +1,15 @@
+= simple_form_for @event do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :start_at, wrapper: :horizontal_input_group do
+      = f.input_field :start_at, as: :string, class: 'form-control', disabled: !@event.new_record?
+      span.input-group-addon
+        i.fa.fa-calendar
+    = f.input :end_at, wrapper: :horizontal_input_group do
+      = f.input_field :end_at, as: :string, class: 'form-control', disabled: !@event.new_record?
+      span.input-group-addon
+        i.fa.fa-calendar
+    = f.input :division, disabled: !@event.new_record?
+  .ln_solid
+  .form-actions.pull-right
+    = f.button :submit, class: 'btn btn-primary'

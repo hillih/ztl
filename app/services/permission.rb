@@ -5,7 +5,7 @@ module Permission
       outfit_element_types:edit
       outfit_element_types:destroy
     ) + (
-      %w(users roles outfit_categories outfit_elements).each_with_object([]) do |controller_name, a|
+      %w(users roles outfit_categories outfit_elements events).each_with_object([]) do |controller_name, a|
         %w(show new edit destroy).each do |action|
           a.push "#{controller_name}:#{action}"
         end

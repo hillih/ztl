@@ -1,0 +1,10 @@
+= render '/page_header',
+  title: t('.'),
+  actions: [(btn_cancel events_path, 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        = render 'form'
+            

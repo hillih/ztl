@@ -27,6 +27,7 @@ pl:
     magazine: 'Magazyn'
     outfit: 'Stroje'
     outfit_element_types: 'Typy elementów stroju'
+    events: 'Wydarzenia'
   users:
     index: 'Użytkownicy'
     show: 'Użytkownik: %{name}'
@@ -50,6 +51,7 @@ pl:
       outfit_element_types: 'Typy elementów stroju'
       outfit_categories: 'Kategorie stroju'
       outfit_elements: 'Elementy stroju'
+      events: 'Wydarzenia'
     action:
       show: 'Podgląd'
       new: 'Dodawanie'
@@ -72,6 +74,11 @@ pl:
     show: 'Element %{element_name} dla kategorii %{category_name}'
     new: 'Nowy element dla kategorii: %{category_name}'
     edit: 'Edycja elementu %{element_name} dla kategorii: %{category_name}'
+  events:
+    index: 'Wydarzenia'
+    show: 'Wydarzenie: %{name}'
+    new: 'Nowe wydarzenie'
+    edit: 'Edycja wydarzenia: %{name}'
   errors:
     messages:
       extension_whitelist_error: 'nie znajduje sie na liście dopuszczalnych wartości'

@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :outfit_categories do
     resources :outfit_elements, except: :index
   end
+  resources :events
 end

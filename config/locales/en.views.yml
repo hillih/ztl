@@ -27,6 +27,7 @@ en:
     magazine: 'Magazine'
     outfit: 'Outfit'
     outfit_element_types: 'Outfit element types'
+    events: 'Events'
   users:
     index: 'Users'
     show: 'User: %{name}'
@@ -51,6 +52,7 @@ en:
       outfit_element_types: 'Outfit element types'
       outfit_categories: 'Outfit categories'
       outfit_elements: 'Outfit elements'
+      events: 'Events'
     action:
       show: 'Show'
       new: 'Add'
@@ -73,6 +75,11 @@ en:
     show: 'Element %{element_name} for category %(category_name)'
     new: 'New element for category: %{category_name}'
     edit: 'Edit element %{element_name} for category: %{category_name}'
+  events:
+    index: 'Events'
+    show: 'Event: %{name}'
+    new: 'New event'
+    edit: 'Edit event: %{name}'
   errors:
     messages:
       duplicate_index:

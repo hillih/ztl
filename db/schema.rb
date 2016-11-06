@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105193155) do
+ActiveRecord::Schema.define(version: 20161105201845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "choreographies", force: :cascade do |t|
+    t.integer  "event_id",                           null: false
+    t.integer  "outfit_category_id"
+    t.string   "name"
+    t.boolean  "artificial",         default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["event_id", "artificial"], name: "index_choreographies_on_event_id_and_artificial", unique: true, where: "(outfit_category_id IS NULL)", using: :btree
+    t.index ["event_id", "outfit_category_id"], name: "index_choreographies_on_event_id_and_outfit_category_id", unique: true, where: "(outfit_category_id IS NOT NULL)", using: :btree
+    t.index ["event_id"], name: "index_choreographies_on_event_id", using: :btree
+    t.index ["outfit_category_id"], name: "index_choreographies_on_outfit_category_id", using: :btree
+  end
+
+  create_table "choreography_settings", force: :cascade do |t|
+    t.integer  "outfit_element_type_id", null: false
+    t.integer  "outfit_category_id"
+    t.integer  "choreography_id",        null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["choreography_id"], name: "index_choreography_settings_on_choreography_id", using: :btree
+    t.index ["outfit_category_id"], name: "index_choreography_settings_on_outfit_category_id", using: :btree
+    t.index ["outfit_element_type_id", "outfit_category_id", "choreography_id"], name: "index_choreography_settings_on_id", unique: true, using: :btree
+    t.index ["outfit_element_type_id"], name: "index_choreography_settings_on_outfit_element_type_id", using: :btree
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.date     "start_at",                  null: false
+    t.date     "end_at"
+    t.boolean  "division",   default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "outfit_categories", force: :cascade do |t|
     t.integer  "parent_id"
@@ -91,6 +125,11 @@ ActiveRecord::Schema.define(version: 20161105193155) do
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "choreographies", "events"
+  add_foreign_key "choreographies", "outfit_categories"
+  add_foreign_key "choreography_settings", "choreographies"
+  add_foreign_key "choreography_settings", "outfit_categories"
+  add_foreign_key "choreography_settings", "outfit_element_types"
   add_foreign_key "outfit_categories", "outfit_categories", column: "parent_id"
   add_foreign_key "outfit_categories", "outfit_element_types"
   add_foreign_key "outfit_elements", "outfit_categories"
