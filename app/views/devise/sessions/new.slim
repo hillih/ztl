@@ -1,5 +1,5 @@
 h1= t('.sign_in')
-= simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-vertical' }, wrapper: :vertical_form do |f|
   = devise_error_messages!
   .form-inputs
     = f.input :email, label: false, placeholder: 'Email', autofocus: true

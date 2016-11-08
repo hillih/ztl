@@ -1,5 +1,5 @@
 h1= t('.resend_confirmation_instructions')
-= simple_form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |f|
+= simple_form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'form-vertical' }, wrapper: :vertical_form do |f|
   .form-inputs
     = devise_error_messages!
     = f.input :email, label: false, placeholder: 'Email', autofocus: true
