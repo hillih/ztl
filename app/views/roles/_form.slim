@@ -4,7 +4,7 @@
     = f.input :symbol
     = f.input :permissions
       .row
-      - Permission::ALL.group_by { |permission| permission.split(':').first }.each do |group, permissions|
+      - Permission::ALL.group_by { |permission| permission.split(':').first }.sort_by {|group, permissions| permissions.size}.each do |group, permissions|
         .col-xs-6.col-sm-4.col-md-3
           = f.input :permissions, collection: permissions, as: :check_boxes, include_hidden: false, wrapper: :vertical_radio_and_checkboxes,
             label: t("roles.section.#{group}"), label_method: -> (permission) { t("roles.action.#{permission.split(':').last}") }

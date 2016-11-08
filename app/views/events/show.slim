@@ -1,6 +1,7 @@
 = render '/page_header', 
   title: t('.', name: @event.name), 
-  actions: [(btn_return events_path, 'md', 'margin-right-0')]
+  actions: [current_user.can?('choreographies:new') && @event.division ? (btn_add new_event_choreography_path(@event), 'md', nil, t('actions.add_choreography')) : nil,
+            (btn_return events_path, 'md', 'margin-right-0')]
 
 .row
   .col-xs-12
@@ -14,3 +15,21 @@
             => btn_edit edit_event_path(@event), 'md', 'margin-right-0' if current_user.can?('events:edit')
             = btn_destroy event_path(@event), 'md', 'margin-right-0' if current_user.can?('events:destroy')
         .col-md-7.col-sm-7.col-xs-12
+          - if @event.division
+            h3= t('events.choreographies')
+            table.table.table-striped
+              thead
+                tr
+                  - %i(name).each do |attribute|
+                    th= Choreography.human_attribute_name(attribute)
+                  th= t('actions.name')
+              tbody
+                - @choreographies.each do |choreography|
+                  tr
+                    td= choreography.name
+                    td
+                      = btn_show event_choreography_path(@event, choreography) if current_user.can?('choreographies:show') 
+                      = btn_edit edit_event_choreography_path(@event, choreography) if current_user.can?('choreographies:edit')
+                      = btn_destroy event_choreography_path(@event, choreography) if current_user.can?('choreographies:destroy')
+            .pull-right
+              = will_paginate @choreographies, renderer: BootstrapPagination::Rails

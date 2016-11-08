@@ -13,6 +13,7 @@ en:
     crop: 'Crop'
     add_category: 'Add category'
     add_element: 'Add element'
+    add_choreography: 'Add choreography'
   notices:
     on_update: '%{model_name} user was successfully updated'
     on_create: '%{model_name} user was successfully created'
@@ -21,6 +22,7 @@ en:
     are_you_sure: 'Are you sure?'
     delete_restriction_error: 'Cannot delete record because of dependent'
     permission_denied: 'You do not have permission to perform this action'
+    cannot_create_choreography: 'You can not create choreography for this event'
   sidebar:
     users: 'Users'
     roles: 'Roles'
@@ -53,11 +55,13 @@ en:
       outfit_categories: 'Outfit categories'
       outfit_elements: 'Outfit elements'
       events: 'Events'
+      choreographies: 'Choreographies for event'
     action:
       show: 'Show'
       new: 'Add'
       edit: 'Edit'
       destroy: 'Remove'
+      edit_settings: 'Edit settings'
   outfit_element_types:
     index: 'Outfit element types'
     new: 'New outfit element type'
@@ -80,6 +84,12 @@ en:
     show: 'Event: %{name}'
     new: 'New event'
     edit: 'Edit event: %{name}'
+    choreographies: 'Choreographies'
+  choreographies:
+    new: 'New choreography for event %{event_name}'
+    edit: 'Edit choreography %{choreography_name} for event %{event_name}'
+    show: 'Choreography %{choreography_name} for event %{event_name}'
+    edit_settings: 'Edit settings choreography %{choreography_name} for event %{event_name}'
   errors:
     messages:
       duplicate_index:
@@ -90,3 +100,4 @@ en:
         index_roles_on_symbol: 'Symbol is not unique'
         index_outfit_elements_on_outfit_category_id_and_symbol: 'For the selected category, there is already an element of the specified symbol'
         index_outfit_categories_on_symbol: 'Symbol is not unique'
+        index_choreographies_on_event_id_and_outfit_category_id: 'For the event, there is already such a choreography'

@@ -1,0 +1,10 @@
+= render '/page_header',
+  title: t('.', choreography_name: @choreography.name, event_name: @event.name),
+  actions: [(btn_cancel event_path(@event), 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        = render 'form'
+            

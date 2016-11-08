@@ -20,3 +20,4 @@
 //= require iCheck/icheck
 //= require outfit_category
 //= require datetimepicker
+//= require choreographies/form

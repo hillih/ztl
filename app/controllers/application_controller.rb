@@ -45,6 +45,6 @@ class ApplicationController < ActionController::Base
   end
 
   def duplicate_index
-    redirect_to :back, alert: t('errors.message.duplicate_index.universal')
+    redirect_to :back, alert: t('errors.messages.duplicate_index.universal')
   end
 end

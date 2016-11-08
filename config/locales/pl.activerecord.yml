@@ -37,9 +37,13 @@ pl:
         start_at: 'Data rozpoczęcia'
         end_at: 'Data zakończenia'
         division: 'Podział na układy'
+      choreography:
+        outfit_category: 'Strój'
+        name: 'Nazwa'
     models:
       role: 'Rola'
       outfit_element_type: 'Typ elemntów stroju'
       outfit_category: 'Kategoria stroju'
       outfit_element: 'Element stroju'
       event: 'Wydarzenie'
+      choreography: 'Układ'

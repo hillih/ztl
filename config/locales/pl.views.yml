@@ -13,6 +13,7 @@ pl:
     crop: 'Wytnij'
     add_category: 'Dodaj kategorie'
     add_element: 'Dodaj element'
+    add_choreography: 'Dodaj układ'
   notices:
     on_update: '%{model_name} został pomyślnie zaktualizowany'
     on_create: '%{model_name} został pomyślnie utworzony'
@@ -21,6 +22,7 @@ pl:
     are_you_sure: 'Czy jesteś pewien?'
     delete_restriction_error: 'Nie można usuąć ponieważ posiada zależności'
     permission_denied: 'Nie posiadasz uprawnień do wykonania tej akcji'
+    cannot_create_choreography: 'Nie można utworzyć układu dla tego wydarzenia'
   sidebar:
     users: 'Użytkownicy'
     roles: 'Role'
@@ -52,11 +54,13 @@ pl:
       outfit_categories: 'Kategorie stroju'
       outfit_elements: 'Elementy stroju'
       events: 'Wydarzenia'
+      choreographies: 'Układy dla wydarzenia'
     action:
       show: 'Podgląd'
       new: 'Dodawanie'
       edit: 'Edytowanie'
       destroy: 'Usuwanie'
+      edit_settings: 'Ustawienia'
   outfit_element_types:
     index: 'Typy elementów stroju'
     new: 'Nowy typ elementów stroju'
@@ -79,6 +83,12 @@ pl:
     show: 'Wydarzenie: %{name}'
     new: 'Nowe wydarzenie'
     edit: 'Edycja wydarzenia: %{name}'
+    choreographies: 'Układy'
+  choreographies:
+    new: 'Nowy układ dla wydarzenia %{event_name}'
+    edit: 'Edycja układu %{choreography_name} dla wydarzenia %{event_name}'
+    show: 'Układ %{choreography_name} dla wydarzenia %{event_name}'
+    edit_settings: 'Edycja ustawień układu %{choreography_name} dla wydarzenia %{event_name}'
   errors:
     messages:
       extension_whitelist_error: 'nie znajduje sie na liście dopuszczalnych wartości'
@@ -90,3 +100,4 @@ pl:
         index_roles_on_symbol: 'Symbol jest już zajęty'
         index_outfit_elements_on_outfit_category_id_and_symbol: 'Dla wybranej kategorii istnieje już element z podanym symbolem'
         index_outfit_categories_on_symbol: 'Symbol jest już zajęty'
+        index_choreographies_on_event_id_and_outfit_category_id: 'Dla wybranego wydarzenia istnieje już taki układ'

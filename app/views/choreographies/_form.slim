@@ -1,0 +1,7 @@
+= simple_form_for [@event, @choreography] do |f|
+  .form-inputs
+    = f.association :outfit_category, collection: OutfitCategory.first_level
+    = f.input :name
+  .ln_solid
+  .form-actions.pull-right
+    = f.button :submit, class: 'btn btn-primary'

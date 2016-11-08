@@ -31,14 +31,19 @@ en:
         full_symbol: *full_symbol
         awf_code: 'AWF code'
         rented: 'rented'
+        outfit_category: 'Outfit category'
       event:
         name: 'Name'
         start_at: 'Start at'
         end_at: 'End at'
         division: 'Division into choreographies'
+        choreography:
+          outfit_category: 'Outfit'
+          name: 'Name'
     models:
       role: 'Role'
       outfit_element_type: 'Outfit element type'
       outfit_category: 'Outfit category'
       outfit_element: 'Outfit element'
       event: 'Event'
+      choreography: 'Choreography'

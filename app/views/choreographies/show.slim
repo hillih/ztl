@@ -1,0 +1,23 @@
+= render '/page_header', 
+  title: t('.', choreography_name: @choreography.name, event_name: @event.name), 
+  actions: [(btn_return event_path(@event), 'md', 'margin-right-0')]
+
+.row
+  .col-xs-12
+    .x_panel
+      .x_content
+        .col-md-5.col-sm-5.col-xs-12
+          dl.dl-horizontal
+            - %i(outfit_category name).each do |attribute|
+              = dl_item(@choreography, attribute)
+          .pull-right
+            => btn_edit edit_event_choreography_path(@event, @choreography), 'md' if current_user.can?('choreographies:edit')
+            = btn_destroy event_choreography_path(@event, @choreography), 'md' if current_user.can?('choreographies:destroy')
+        .col-md-7.col-sm-7.col-xs-12
+          ul.nav.nav-tabs.bar_tabs
+            li.active
+              = link_to 'Wyporzyczenia', '#'
+            - if current_user.can?('choreographies:edit_settings')
+              li
+                = link_to 'Ustawienia', edit_settings_event_choreography_path(@event, @choreography)
+          div

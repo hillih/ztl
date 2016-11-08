@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   resources :outfit_categories do
     resources :outfit_elements, except: :index
   end
-  resources :events
+  resources :events do
+    resources :choreographies, except: :index do
+      get :edit_settings, on: :member
+      patch :update_settings, on: :member
+    end
+  end
 end

@@ -25,4 +25,4 @@
                 li class=menu_item_is_active?('outfit_element_types')
                   = link_to t('sidebar.outfit_element_types'), outfit_element_types_path
         - if current_user.can_section?('events')
-          = menu_item(menu_item_is_active?('events'), events_path, t('sidebar.events'), 'calendar')
+          = menu_item((menu_item_is_active?('events') || menu_item_is_active?('choreographies')), events_path, t('sidebar.events'), 'calendar')

@@ -4,6 +4,10 @@ class EventsController < BaseController
     @events = Event.ordered.page(params[:page])
   end
 
+  def show
+    @choreographies = @event.choreographies.page(params[:page])
+  end
+
   def new
     @event = Event.new
   end
